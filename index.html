@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Losh Pools — Grand Pools</title>
+<link rel="stylesheet" href="css/fonts.css" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-header__logo" href="#top">LOSH POOLS</a>
+
+  <div class="site-header__actions">
+    <a class="pill-button" href="#contact">CONTACT</a>
+
+    <button
+      type="button"
+      class="menu-toggle"
+      data-menu-toggle
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="nav-overlay"
+    >
+      <img src="https://www.figma.com/api/mcp/asset/db7b57b9-dc06-4970-9880-56c2cd38169b.svg" alt="" />
+    </button>
+  </div>
+</header>
+
+<nav class="nav-overlay" id="nav-overlay" data-nav-overlay aria-label="Main menu">
+  <div class="nav-overlay__inner">
+    <div class="nav-overlay__top">
+      <ul class="nav-overlay__links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button type="button" class="pill-button" data-menu-close aria-label="Close menu">
+        CLOSE
+      </button>
+    </div>
+
+    <div class="nav-overlay__legal">
+      <a href="#privacy">Privacy</a>
+      <a href="#terms">Terms &amp; Conditions</a>
+      <a href="#cookies">Cookie Policy</a>
+    </div>
+
+    <div class="nav-overlay__social">
+      <a href="#" aria-label="X (Twitter)">
+        <img src="https://www.figma.com/api/mcp/asset/a1de7323-4415-4a11-9503-9b00440dd48b.svg" alt="" />
+      </a>
+      <a href="#" aria-label="LinkedIn">
+        <img src="https://www.figma.com/api/mcp/asset/e22d68e6-bdaa-401c-b105-a6b3c1f0d92e.svg" alt="" />
+      </a>
+      <a href="#" aria-label="Facebook">
+        <img src="https://www.figma.com/api/mcp/asset/da6035c7-977e-427e-a735-0aab10c50784.svg" alt="" />
+      </a>
+      <a href="#" aria-label="GitHub">
+        <img src="https://www.figma.com/api/mcp/asset/a8e4c930-58c5-40d4-b759-e4fc373f6238.svg" alt="" />
+      </a>
+      <a href="#" aria-label="Social link">
+        <img src="https://www.figma.com/api/mcp/asset/5afc8bdf-a081-4b1c-9f1b-d99729d4dcf3.svg" alt="" />
+      </a>
+      <a href="#" aria-label="Dribbble">
+        <img src="https://www.figma.com/api/mcp/asset/63e6bd52-7dc0-4c27-94b7-a0fbda95dbfc.svg" alt="" />
+      </a>
+      <a href="#" aria-label="Social link" class="nav-overlay__social-stack">
+        <span style="position:relative; display:block; width:100%; height:100%;">
+          <span style="position:absolute; top:0; left:1.52%; right:35.92%; bottom:29.01%;">
+            <img style="width:100%; height:100%; display:block;" src="https://www.figma.com/api/mcp/asset/c9121237-da57-417f-8450-1e4b6f36ecd9.svg" alt="" />
+          </span>
+          <span style="position:absolute; top:14.51%; left:18.72%; right:18.72%; bottom:14.5%;">
+            <img style="width:100%; height:100%; display:block;" src="https://www.figma.com/api/mcp/asset/4cf0ccf4-c2ae-47cc-8523-1799a9d7a72b.svg" alt="" />
+          </span>
+          <span style="position:absolute; top:29.01%; left:35.92%; right:1.51%; bottom:0;">
+            <img style="width:100%; height:100%; display:block;" src="https://www.figma.com/api/mcp/asset/a6229510-288d-4c7b-83f9-0a4a50aaef73.svg" alt="" />
+          </span>
+        </span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <img class="hero__photo" src="https://www.figma.com/api/mcp/asset/0508397c-4931-4166-8916-64c015a65739.png" alt="Modern Palm Springs–style home with a stone facade and pool" />
+    <img class="hero__glow" src="https://www.figma.com/api/mcp/asset/c5f0a10b-b7ae-4f66-9b49-da90a6832ca8.svg" alt="" />
+    <p class="hero__tagline reveal">At Losh Pools we design and build custom pools that transform outdoor spaces into beautiful, lasting places to relax, entertain, and enjoy.</p>
+  </section>
+
+  <!-- Mission statement -->
+  <section class="mission">
+    <p class="mission__text reveal">Losh Pools designs and builds architectural residential pools. Every project is sited, detailed, and finished with the same rigour as the residence around it; because the pool isn't an amenity. It's part of the architecture.</p>
+  </section>
+
+  <!-- Wellness / process — step 1 -->
+  <section class="process-scrub" aria-label="Our process">
+    <div class="process-scrub__scroll" id="processScroll">
+      <div class="process-scrub__stage">
+        <div class="process-scrub__bg">
+          <video
+            id="processVideo"
+            src="assets/video/process-scrub.mp4"
+            poster="assets/video/process-poster.jpg"
+            muted
+            playsinline
+            preload="auto"
+          ></video>
+          <div class="process-scrub__tint"></div>
+        </div>
+
+        <p class="process-scrub__eyebrow">Our Process</p>
+
+        <div class="process-scrub__panel">
+          <h3 class="process-scrub__title" id="processStepTitle">Excavation</h3>
+          <p class="process-scrub__text" id="processStepText">The site is cleared and the pool cut to precise levels — the first line every later measurement follows.</p>
+
+          <div class="process-scrub__progress">
+            <div class="process-scrub__bars" id="processBars">
+              <div class="process-scrub__seg"><span class="process-scrub__seg-fill"></span></div>
+              <div class="process-scrub__seg"><span class="process-scrub__seg-fill"></span></div>
+              <div class="process-scrub__seg"><span class="process-scrub__seg-fill"></span></div>
+              <div class="process-scrub__seg"><span class="process-scrub__seg-fill"></span></div>
+            </div>
+            <div class="process-scrub__step-numbers" aria-hidden="true">
+              <span>01</span><span>02</span><span>03</span><span>04</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured projects -->
+  <section class="projects" id="projects">
+    <div class="section__inner projects__head">
+      <h2 class="section-heading reveal">Featured Projects</h2>
+    </div>
+
+    <div class="section__inner">
+      <div class="projects__grid reveal-group" style="height: 3982px;">
+
+        <a class="project-card reveal reveal--scale" href="#" style="left:0; top:0; width:675px; height:846px;">
+          <div class="project-card__photo-wrap" style="height:750px;">
+            <img class="project-card__photo" src="https://www.figma.com/api/mcp/asset/453ac782-7030-4dc1-b124-e054b6c94c83.png" alt="Toorak Laguna Residence pool" />
+          </div>
+          <div class="project-card__meta">
+            <div>
+              <p class="project-card__eyebrow">Project 01</p>
+              <p class="project-card__title">Toorak Laguna Residence</p>
+            </div>
+            <p class="project-card__year">2025</p>
+          </div>
+        </a>
+
+        <a class="project-card reveal reveal--scale" href="#" style="left:352.5px; top:926px; width:675px; height:566px;">
+          <div class="project-card__photo-wrap" style="height:470px;">
+            <img class="project-card__photo" src="https://www.figma.com/api/mcp/asset/b50c49fd-5bc3-40f0-9e82-ae8b7ae1989f.png" alt="Linden House pool" />
+            <div class="project-card__scrim" style="background: rgba(27,58,47,0.25);"></div>
+          </div>
+          <div class="project-card__meta">
+            <div>
+              <p class="project-card__eyebrow">Project 02</p>
+              <p class="project-card__title">Linden House</p>
+            </div>
+            <p class="project-card__year">2025</p>
+          </div>
+        </a>
+
+        <a class="project-card reveal reveal--scale" href="#" style="left:0; top:1572px; width:577px; height:566px;">
+          <div class="project-card__photo-wrap" style="height:470px;">
+            <img class="project-card__photo" src="https://www.figma.com/api/mcp/asset/14fab3c8-9133-4e63-bf5c-9aa4c460eca9.png" alt="Studley Park pool" />
+            <div class="project-card__scrim" style="background: rgba(27,58,47,0.29);"></div>
+          </div>
+          <div class="project-card__meta">
+            <div>
+              <p class="project-card__eyebrow">Project 03</p>
+              <p class="project-card__title">Studley Park</p>
+            </div>
+            <p class="project-card__year">2026</p>
+          </div>
+        </a>
+
+        <a class="project-card reveal reveal--scale" href="#" style="left:705px; top:1572px; width:675px; height:846px;">
+          <div class="project-card__photo-wrap" style="height:750px;">
+            <img class="project-card__photo" src="https://www.figma.com/api/mcp/asset/f330d805-f85d-4a88-80d9-bd8f6b494960.png" alt="Stonehouse pool" />
+            <div class="project-card__scrim" style="background: rgba(23,43,42,0.37);"></div>
+          </div>
+          <div class="project-card__meta">
+            <div>
+              <p class="project-card__eyebrow">Project 04</p>
+              <p class="project-card__title">Stonehouse</p>
+            </div>
+            <p class="project-card__year">2025</p>
+          </div>
+        </a>
+
+        <a class="project-card reveal reveal--scale" href="#" style="left:352.5px; top:2498px; width:675px; height:838px;">
+          <div class="project-card__photo-wrap" style="height:750px;">
+            <img class="project-card__photo" src="https://www.figma.com/api/mcp/asset/d65eab28-8939-4bcc-ba15-ff77619712a5.png" alt="Lerr house pool" />
+          </div>
+          <div class="project-card__meta">
+            <div>
+              <p class="project-card__eyebrow">Project 05</p>
+              <p class="project-card__title">Lerr house</p>
+            </div>
+            <p class="project-card__year">2023</p>
+          </div>
+        </a>
+
+        <a class="project-card reveal reveal--scale" href="#" style="left:0; top:3416px; width:675px; height:566px;">
+          <div class="project-card__photo-wrap" style="height:470px;">
+            <img class="project-card__photo" src="https://www.figma.com/api/mcp/asset/a365d8bb-cdd0-48e0-8603-6824a0637a21.png" alt="Sweer house pool" />
+          </div>
+          <div class="project-card__meta">
+            <div>
+              <p class="project-card__eyebrow">Project 06</p>
+              <p class="project-card__title">Sweer house</p>
+            </div>
+            <p class="project-card__year">2023</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="projects__cta">
+      <a class="btn-dark" href="#projects">VIEW ALL WORKS</a>
+    </div>
+  </section>
+
+  <!-- About us -->
+  <section class="about" id="about">
+    <div class="about__inner">
+      <div class="about__copy reveal reveal--left">
+        <h2 class="section-heading reveal">About Us</h2>
+        <div class="about__paragraphs">
+          <p>Grand Pools was founded in 2021 with a vision to create exceptional swimming pools that transform outdoor spaces. With over 25 years of combined experience, our team specialises in designing and building pools that are both beautiful and built to last.</p>
+          <p>We focus on quality craftsmanship, innovation, and personalised service to bring every client's vision to life.</p>
+        </div>
+        <a class="btn-dark" href="#about">
+          DISCOVER OUR STORY
+          <img src="https://www.figma.com/api/mcp/asset/3210ca85-a7d4-4c5f-875b-926e76a412fa.svg" alt="" />
+        </a>
+      </div>
+      <div class="about__photo-wrap reveal reveal--right">
+        <img class="about__photo" src="https://www.figma.com/api/mcp/asset/98ae011a-e0c1-4cc3-b222-590668d3c39d.png" alt="Modern home with a lap pool at dusk" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Wellness / lifestyle statement -->
+  <section class="wellness wellness--compact" aria-label="Lifestyle statement">
+    <img class="wellness__photo" src="https://www.figma.com/api/mcp/asset/defdd4ee-ef0c-4662-a6e8-e5ff3ca3bcc9.png" alt="Dark, moody pool at dusk beside a modern home" />
+    <div class="wellness__scrim"></div>
+    <p class="wellness__quote reveal">Designed for the way Melbourne lives ,<br />slow mornings, long evenings, the kind of home you don't leave.</p>
+  </section>
+
+  <!-- The approach -->
+  <section class="approach" id="approach">
+    <div class="approach__inner">
+      <div class="approach__top reveal">
+        <h2 class="section-heading reveal">The Approach</h2>
+        <p class="approach__intro">Every commission moves through three stages. Each one led personally, each one designed to be clear, not lengthy. Restraint is the principle, even in the process.</p>
+      </div>
+
+      <div class="approach__grid reveal-group">
+        <div class="approach-card reveal reveal--scale">
+          <div class="approach-card__photo-wrap">
+            <img class="approach-card__photo" src="https://www.figma.com/api/mcp/asset/4353d995-ce3c-4d1e-af71-3594432e6c35.png" alt="Site visit walkthrough" />
+          </div>
+          <div>
+            <p class="approach-card__title">(i) Site visit</p>
+            <p class="approach-card__text">Whether you have a team of 2 or 200, our shared team inboxes keep everyone on the same page and in the loop.</p>
+          </div>
+        </div>
+
+        <div class="approach-card reveal reveal--scale">
+          <div class="approach-card__photo-wrap">
+            <img class="approach-card__photo" src="https://www.figma.com/api/mcp/asset/6e29a442-f97e-4064-a522-28f2e0989cac.png" alt="Hand-drawn pool design plans" />
+          </div>
+          <div>
+            <p class="approach-card__title">(ii) Design</p>
+            <p class="approach-card__text">A full set of drawings, materials, and finishes, presented in one considered conversation, not seven.</p>
+          </div>
+        </div>
+
+        <div class="approach-card reveal reveal--scale">
+          <div class="approach-card__photo-wrap">
+            <img class="approach-card__photo" src="https://www.figma.com/api/mcp/asset/c0d55388-30e7-4d58-a55c-75f7c450763b.png" alt="Aerial view of a completed pool build" />
+          </div>
+          <div>
+            <p class="approach-card__title">(iii) Build</p>
+            <p class="approach-card__text">One project at a time, supervised by the founder from excavation through commissioning.</p>
+          </div>
+        </div>
+      </div>
+
+      <a class="btn-dark" href="#approach">READ THE FULL PROCESS</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="contact">
+  <div class="site-footer__content">
+    <div class="site-footer__brand">
+      <p class="site-footer__logo">LOSH POOLS</p>
+      <div class="site-footer__brand-copy">
+        <p>Crafting Custom Pools Across Melbourne</p>
+        <p>0422 630 394</p>
+        <p>admin@loshpools.com.au</p>
+      </div>
+    </div>
+
+    <div class="site-footer__columns">
+      <div class="site-footer__col">
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="#top">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services <span class="site-footer__badge">New</span></a></li>
+          <li><a href="#projects">Projects</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#services">New Pool Construction</a></li>
+          <li><a href="#services">Concrete Pool Renovations</a></li>
+          <li><a href="#services">Pool Equipment &amp; Installation</a></li>
+          <li><a href="#services">Commercial Pool Construction</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__newsletter">
+      <h3>Join our newsletter</h3>
+      <p>Join our mailing list to get updates on new projects, pool design tips, and expert advice, delivered straight to your inbox.</p>
+      <form class="site-footer__form" onsubmit="return false;">
+        <input type="email" placeholder="Enter your email" aria-label="Email address" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="site-footer__bottom">
+    <p class="site-footer__copyright">© 2025 Losh Pools. All rights reserved.</p>
+    <div class="site-footer__social">
+      <a href="#" aria-label="X (Twitter)">
+        <img src="https://www.figma.com/api/mcp/asset/b82ef757-6dbb-40ad-a67d-2f195e911db7.svg" alt="" />
+      </a>
+      <a href="#" aria-label="LinkedIn">
+        <img src="https://www.figma.com/api/mcp/asset/d976a403-c375-421d-9de7-265efe934b7f.svg" alt="" />
+      </a>
+      <a href="#" aria-label="Facebook">
+        <img src="https://www.figma.com/api/mcp/asset/68de10c0-b112-4258-bbb1-0810ad675316.svg" alt="" />
+      </a>
+      <a href="#" aria-label="GitHub">
+        <img src="https://www.figma.com/api/mcp/asset/aedbfc4e-966d-4b66-aa9d-e53ed1d576a9.svg" alt="" />
+      </a>
+      <a href="#" aria-label="Social link">
+        <img src="https://www.figma.com/api/mcp/asset/e6b3c7d3-2d4f-4225-bb8b-e9f7010eede6.svg" alt="" />
+      </a>
+      <a href="#" aria-label="Dribbble">
+        <img src="https://www.figma.com/api/mcp/asset/bb778fa3-57eb-41ec-8017-b925de5bb280.svg" alt="" />
+      </a>
+      <a href="#" aria-label="Social link" style="position:relative;">
+        <span style="position:relative; display:block; width:100%; height:100%;">
+          <span style="position:absolute; top:0; left:1.52%; right:35.92%; bottom:29.01%;">
+            <img style="width:100%; height:100%; display:block;" src="https://www.figma.com/api/mcp/asset/bf4171ae-9c94-44fe-a433-24a3e0c1595d.svg" alt="" />
+          </span>
+          <span style="position:absolute; top:14.51%; left:18.72%; right:18.72%; bottom:14.5%;">
+            <img style="width:100%; height:100%; display:block;" src="https://www.figma.com/api/mcp/asset/d4d93c78-ca01-4f50-9d14-b4b3e6233145.svg" alt="" />
+          </span>
+          <span style="position:absolute; top:29.01%; left:35.92%; right:1.51%; bottom:0;">
+            <img style="width:100%; height:100%; display:block;" src="https://www.figma.com/api/mcp/asset/bdc03c2e-7fc1-47b7-bcbc-1b69a5968d2d.svg" alt="" />
+          </span>
+        </span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
