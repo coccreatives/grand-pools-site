@@ -973,9 +973,10 @@ body {
     height: auto !important;
   }
 
-  .project-card__photo-wrap {
-    height: 420px !important;
-  }
+  /* Photo-wrap height is no longer forced to a uniform value here — each
+     card's wrap now carries its own aspect-ratio inline (see index.html),
+     matching Figma's mix of tall (675×750) and short (675×470 / 577×470)
+     cards, so the stacked mobile layout preserves the same proportions. */
 
   .projects__grid > .project-card + .project-card {
     margin-top: 48px;
@@ -1025,10 +1026,19 @@ body {
   overflow-x: clip;
 }
 
-/* Outer wrapper: its height IS the scrub length. More vh = slower playback. */
+/* Outer wrapper: its height IS the scrub length — 100vh of that is the pinned
+   stage itself, so this gives exactly 100vh of extra scroll room for the
+   scrub. More height here = slower playback.
+   FIX: paired with .process-scrub__stage's height, both here in vh (with an
+   svh override for mobile). Mixing vh on the wrapper with svh on the stage
+   let mobile browsers disagree about "100vh" (vh includes the address-bar
+   space, svh doesn't), so the wrapper ran taller than 4x the stage's real
+   pinned height — once the sticky stage un-pinned, the leftover scroll
+   distance showed as blank space below the video before the next section. */
 .process-scrub__scroll {
   position: relative;
-  height: 400vh;
+  height: 200vh;
+  height: 200svh;
 }
 
 /* Sticky stage: pins to the viewport while the wrapper scrolls past it */
