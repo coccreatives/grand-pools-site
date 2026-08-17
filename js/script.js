@@ -75,7 +75,6 @@
   var wrap = document.getElementById("processScroll");
   var video = document.getElementById("processVideo");
   var bars = document.querySelectorAll("#processBars .process-scrub__seg-fill");
-  var numberEls = document.querySelectorAll(".process-scrub__step-numbers span");
   var stepTitle = document.getElementById("processStepTitle");
   var stepText = document.getElementById("processStepText");
   var panel = document.querySelector(".process-scrub__panel");
@@ -131,11 +130,19 @@
   window.addEventListener("touchstart", prime, { once: true, passive: true });
   window.addEventListener("scroll", prime, { once: true, passive: true });
 
+  /* No sticky pin, no extra scroll runway above the section — the wrapper
+     is exactly 100vh (see style.css). Progress is driven by the section's
+     own position as it scrolls through the viewport: 0 when its top edge
+     touches the bottom of the screen (just entering), 1 when that same top
+     edge reaches the top of the screen (fully scrolled past, one full
+     section-height of scrolling later). Symmetric either direction, so
+     scrolling back up naturally reverses it. */
   function readScroll() {
     var rect = wrap.getBoundingClientRect();
-    var total = wrap.offsetHeight - window.innerHeight;
+    var total = rect.height;
     if (total <= 0) return;
-    targetP = Math.max(0, Math.min(1, -rect.top / total));
+    var p = (window.innerHeight - rect.top) / total;
+    targetP = Math.max(0, Math.min(1, p));
   }
   window.addEventListener("scroll", readScroll, { passive: true });
   window.addEventListener("resize", readScroll, { passive: true });
@@ -186,20 +193,15 @@
     var idx = Math.max(0, Math.min(STEPS.length - 1, Math.floor(currentP * STEPS.length)));
     if (idx !== stepIdx) applyStep(idx);
 
-    numberEls.forEach(function (el, i) {
-      el.classList.toggle("is-current", i === stepIdx);
-    });
-
     requestAnimationFrame(frame);
   }
 
   if (reduceMotion) {
     /* Respect prefers-reduced-motion: show the resting first-step state and
        skip the scrubbing loop entirely rather than disabling only the CSS
-       transitions (the whole effect is motion, not just its easing). */
-    numberEls.forEach(function (el, i) {
-      el.classList.toggle("is-current", i === 0);
-    });
+       transitions (the whole effect is motion, not just its easing). Set the
+       first segment's fill so its "01" reveals immediately in that state. */
+    if (bars[0]) bars[0].style.width = "100%";
     return;
   }
 
