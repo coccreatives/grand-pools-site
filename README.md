@@ -18,17 +18,19 @@ Every section of the 9,530px Figma frame, top to bottom:
 - **Hero** — background photo, decorative gradient glow, tagline.
 - **Mission statement** — centered pull-quote on the dark green background.
 - **Process (scroll-scrubbed video)** — built with the `scroll-scrub-video-section`
-  skill, replacing the static "Excavation" photo. A 400vh scroll wrapper pins
-  the video/copy/progress-bar in place; scroll position drives one eased
-  timeline that scrubs the video's `currentTime`, fills the 4-segment progress
-  bar, and swaps the step title/description — all from that single value, so
-  they can't drift out of sync. Only step 1 ("Excavation") had real copy in
-  the Figma file; steps 2–4 ("Steel & Plumbing", "Shotcrete & Shell",
-  "Finishing & Handover") are drafted in the same voice — edit the `STEPS`
-  array near the bottom of `js/script.js` to change the wording.
-  Tuning knobs: `.process-scrub__scroll { height: 400vh }` in `style.css`
-  controls scrub speed (more vh = slower), and the `0.14` easing factor in
-  `js/script.js` controls responsiveness vs. smoothness.
+  skill, replacing the static "Excavation" photo. The section is exactly
+  100vh, no sticky pin and no extra scroll runway above it — scroll position
+  drives one eased timeline (based on the section's own position as it
+  passes through the viewport) that scrubs the video's `currentTime`, fills
+  the 4-segment progress bar, and swaps the step title/description — all
+  from that single value, so they can't drift out of sync. Only step 1
+  ("Excavation") had real copy in the Figma file; steps 2–4 ("Steel &
+  Plumbing", "Shotcrete & Shell", "Finishing & Handover") are drafted in the
+  same voice — edit the `STEPS` array near the bottom of `js/script.js` to
+  change the wording.
+  Tuning knob: the `0.14` easing factor in `js/script.js` controls
+  responsiveness vs. smoothness (the scrub distance itself is fixed at one
+  screen height, matched to the section's 100vh).
   Your source video was re-encoded for scrubbing (H.264, keyframe every 4
   frames for near-instant seeking, audio stripped since it's muted anyway) —
   see `assets/video/process-scrub.mp4` (6.4MB) and its poster frame.
