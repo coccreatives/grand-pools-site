@@ -521,18 +521,46 @@ body {
 }
 
 .projects__head {
-  margin-bottom: 90px;
+  margin-bottom: 70px;
 }
 
+/* FIX: rebuilt from Figma's actual auto-layout structure instead of raw
+   x/y/width/height coordinates. It's five stacked rows (80px apart) — not
+   a freeform masonry — where each row's alignment differs (left / centered
+   / split) and every card keeps its own authored width and photo aspect
+   ratio rather than stretching or being forced to a shared size. This is
+   inherently responsive: cards shrink by their own aspect-ratio on narrow
+   viewports instead of needing a separate mobile override. */
 .projects__grid {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+.projects__row {
+  display: flex;
+  width: 100%;
+}
+
+.projects__row--left {
+  justify-content: flex-start;
+}
+
+.projects__row--center {
+  justify-content: center;
+}
+
+.projects__row--split {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
 }
 
 .project-card {
-  position: absolute;
   display: flex;
   flex-direction: column;
   gap: 11px;
+  max-width: 100%;
   color: inherit;
   text-decoration: none;
 }
@@ -602,7 +630,7 @@ body {
 .projects__cta {
   display: flex;
   justify-content: center;
-  padding: 75px 0 120px;
+  padding: 48px 0 75px;
 }
 
 /* ---------- About us / Approach (light "cards" sections) ---------- */
@@ -977,30 +1005,6 @@ body {
   overflow-x: clip;
 }
 
-@media (max-width: 1450px) {
-  /* Below the design's native 1440px canvas, the featured-projects grid's
-     hand-placed (Figma-exact) pixel coordinates no longer fit — fall back to
-     a simple stacked column instead of overflowing the viewport. */
-  .projects__grid {
-    height: auto !important;
-  }
-
-  .project-card {
-    position: static !important;
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  /* Photo-wrap height is no longer forced to a uniform value here — each
-     card's wrap now carries its own aspect-ratio inline (see index.html),
-     matching Figma's mix of tall (675×750) and short (675×470 / 577×470)
-     cards, so the stacked mobile layout preserves the same proportions. */
-
-  .projects__grid > .project-card + .project-card {
-    margin-top: 48px;
-  }
-}
-
 @media (max-width: 900px) {
   .section-heading {
     font-size: 56px;
@@ -1044,28 +1048,23 @@ body {
   overflow-x: clip;
 }
 
-/* Outer wrapper: its height IS the scrub length — 100vh of that is the pinned
-   stage itself, so this gives exactly 100vh of extra scroll room for the
-   scrub. More height here = slower playback.
-   FIX: paired with .process-scrub__stage's height, both here in vh (with an
-   svh override for mobile). Mixing vh on the wrapper with svh on the stage
-   let mobile browsers disagree about "100vh" (vh includes the address-bar
-   space, svh doesn't), so the wrapper ran taller than 4x the stage's real
-   pinned height — once the sticky stage un-pinned, the leftover scroll
-   distance showed as blank space below the video before the next section. */
+/* Exactly 100vh, no more — not a sticky-pin scrub with extra scroll room
+   above it. The video/bar timeline is driven by the section's own scroll
+   position as it passes through the viewport (see script.js): progress 0 as
+   it enters the bottom of the screen, progress 1 as it exits the top, all
+   within one screen height of scrolling. No pin means no leftover unpinned
+   scroll distance, so the mobile whitespace bug this used to have structurally
+   can't happen — there's no extra wrapper height for it to hide in. */
 .process-scrub__scroll {
   position: relative;
-  height: 200vh;
-  height: 200svh;
+  height: 100vh;
+  height: 100svh;
 }
 
-/* Sticky stage: pins to the viewport while the wrapper scrolls past it */
 .process-scrub__stage {
-  position: sticky;
-  top: 0;
+  position: relative;
   min-height: 560px;
-  height: 100vh;
-  height: 100svh; /* mobile browser chrome */
+  height: 100%;
   overflow: hidden;
   background: #0c1512;
 }
@@ -1145,48 +1144,45 @@ body {
 .process-scrub__progress {
   display: flex;
   flex-direction: column;
-  gap: 8px;
   width: 100%;
   max-width: 520px;
 }
 
+/* Matches Figma exactly: 28px-tall segments, edge-to-edge, no gap. Each
+   segment's white-on-white number is invisible until the dark-green fill
+   (driven by the scrub timeline) grows underneath it — a reveal effect,
+   not a separate always-visible "01 02 03 04" row. */
 .process-scrub__bars {
   display: flex;
-  gap: 8px;
 }
 
 .process-scrub__seg {
+  position: relative;
   flex: 1 1 0;
-  height: 4px;
-  border-radius: 2px;
-  background: rgba(255, 255, 255, 0.3);
+  height: 28px;
+  background: #fff;
   overflow: hidden;
 }
 
 .process-scrub__seg-fill {
-  display: block;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   width: 0%;
-  background: #fff;
+  background: var(--color-wellness-dark);
 }
 
-.process-scrub__step-numbers {
-  display: flex;
-  justify-content: space-between;
-}
-
-.process-scrub__step-numbers span {
-  flex: 1 1 0;
+.process-scrub__seg-num {
+  position: absolute;
+  left: 23px;
+  top: 4px;
+  z-index: 2;
   font-family: var(--font-body);
   font-weight: 600;
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.55);
-  transition: color 0.2s ease;
-}
-
-.process-scrub__step-numbers span.is-current {
+  font-size: 16px;
+  line-height: 1.05;
+  letter-spacing: -0.24px;
   color: #fff;
+  white-space: nowrap;
 }
 
 @media (max-width: 900px) {
