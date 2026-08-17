@@ -629,6 +629,16 @@ body {
   max-width: 652px;
 }
 
+/* FIX: Figma nests paragraphs + button in their own block with a 48px gap,
+   separate from the 80px gap under the heading — previously all three sat
+   as flat siblings sharing one 80px gap, pushing the button too far down. */
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: flex-start;
+}
+
 .about__paragraphs {
   display: flex;
   flex-direction: column;
@@ -951,12 +961,20 @@ body {
 
 /* ---------- Responsive ---------- */
 
+/* FIX: 'clip' not 'hidden' on these page-level ancestors — same reasoning
+   as .process-scrub below. 'hidden' turns html/body into a scroll container
+   (per the CSS overflow-x/overflow-y coupling rule), which breaks
+   position:sticky for .process-scrub__stage on some mobile browsers: the
+   sticky pin lets go early, and the rest of the 200vh wrapper scrolls past
+   as blank space before Featured Projects starts. 'clip' still prevents the
+   horizontal scrollbar this rule was added for, without creating that
+   scroll container. */
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 @media (max-width: 1450px) {
